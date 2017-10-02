@@ -28,12 +28,6 @@ export class SelectedPersonPageComponent implements OnInit {
       .params
       .switchMap(params => this.personService.getPerson(params.id))
       .subscribe(person => this.person = person);
-
-    //     .switchMap(params => this.todoListService.getTodoList(params.id))
-    //     .subscribe(todoList => {
-    //       this.todoList = todoList;
-    //       this.calculateIncompleteTodos();
-    //     });
   }
 
   isPersonInvited(): boolean {

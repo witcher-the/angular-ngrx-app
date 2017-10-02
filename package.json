@@ -1,6 +1,6 @@
 {
-  "name": "angular-todo-app",
-  "version": "0.0.0",
+  "name": "angular-ngrx-app",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
