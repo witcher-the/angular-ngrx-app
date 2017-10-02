@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import {Person} from '../model/person';
 import * as _ from 'lodash';
+import 'rxjs/add/operator/do';
 
 @Injectable()
 export class PartyService {
