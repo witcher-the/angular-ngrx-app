@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {Person} from "../../model/person";
-import {PersonService} from "../../services/person.service";
+import {Component} from '@angular/core';
+import {Person} from '../../model/person';
+import {PersonService} from '../../services/person.service';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'find-person-page',
@@ -9,15 +10,19 @@ import {PersonService} from "../../services/person.service";
 })
 export class FindPersonPageComponent {
 
-  searchQuery: string = '';
+  searchQuery = '';
   persons: Person[] = [];
 
   constructor(private personService: PersonService) {
   }
 
   search(query: string) {
-    this.personService
-      .searchPersons(query)
-      .subscribe(persons => this.persons = persons);
+    if (_.isEmpty(query)) {
+      this.persons = [];
+    } else {
+      this.personService
+        .searchPersons(query)
+        .subscribe(persons => this.persons = persons);
+    }
   }
 }

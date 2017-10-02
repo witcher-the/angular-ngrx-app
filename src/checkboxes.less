@@ -1,0 +1,67 @@
+label.btn span {
+  font-size : 1.5em;
+  padding-left: 1rem;
+}
+label input[type="radio"] ~ i.fa.fa-circle-o {
+  color   : #C8C8C8;
+  display : inline;
+}
+label input[type="radio"] ~ i.fa.fa-dot-circle-o {
+  display : none;
+}
+label input[type="radio"]:checked ~ i.fa.fa-circle-o {
+  display : none;
+}
+label input[type="radio"]:checked ~ i.fa.fa-dot-circle-o {
+  color   : #17A2B8;
+  display : inline;
+}
+label:hover input[type="radio"] ~ i.fa {
+  color : #17A2B8;
+}
+label input[type="checkbox"] ~ i.fa.fa-square-o {
+  color   : #C8C8C8;
+  display : inline;
+}
+label input[type="checkbox"] ~ i.fa.fa-check-square-o {
+  display : none;
+}
+label input[type="checkbox"]:checked ~ i.fa.fa-square-o {
+  display : none;
+}
+label input[type="checkbox"]:checked ~ i.fa.fa-check-square-o {
+  color   : #17A2B8;
+  display : inline;
+}
+label:hover input[type="checkbox"] ~ i.fa {
+  color : #17A2B8;
+}
+div[data-toggle="buttons"] label.active {
+  color : #7AA3CC;
+}
+div[data-toggle="buttons"] label {
+  align-items    : center;
+  display        : flex;
+  padding        : 6px 12px;
+  margin-bottom  : 0;
+  font-size      : 14px;
+  font-weight    : normal;
+  line-height    : 2em;
+  text-align     : left;
+  white-space    : nowrap;
+  vertical-align : top;
+  cursor         : pointer;
+  border         : 0px solid #C8C8C8;
+  border-radius  : 3px;
+  color          : #C8C8C8;
+  user-select    : none;
+}
+div[data-toggle="buttons"] label:hover {
+  color : #7AA3CC;
+}
+div[data-toggle="buttons"] label:active, div[data-toggle="buttons"] label.active {
+  -webkit-box-shadow : none;
+  box-shadow         : none;
+}
+
+

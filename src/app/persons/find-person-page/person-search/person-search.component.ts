@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import "rxjs/add/observable/fromEvent";
-import "rxjs/add/operator/filter";
-import "rxjs/add/operator/debounceTime";
+import 'rxjs/add/observable/fromEvent';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/debounceTime';
 
 @Component({
   selector: 'person-search',

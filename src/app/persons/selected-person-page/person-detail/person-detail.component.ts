@@ -1,5 +1,10 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Person} from "../../../model/person";
+import {
+  Component,
+  EventEmitter,
+  Input,
+  Output
+} from '@angular/core';
+import {Person} from '../../../model/person';
 
 @Component({
   selector: 'person-detail',
@@ -13,12 +18,7 @@ export class PersonDetailComponent {
   @Output() invite = new EventEmitter<Person>();
   @Output() uninvite = new EventEmitter<Person>();
 
-  constructor() { }
-
   get age(): number {
     return new Date().getFullYear() - new Date(this.person.dob).getFullYear();
   }
-
-
-
 }

@@ -1,5 +1,5 @@
-import {Address} from "./address";
-import {Company} from "./company";
+import {Address} from './address';
+import {Company} from './company';
 
 export interface Person {
   id: number;
@@ -13,4 +13,5 @@ export interface Person {
   website: string;
   address: Address;
   company: Company;
+  attending?: boolean;
 }

@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {Person} from "../../../model/person";
+import {Person} from '../../../model/person';
 
 @Component({
   selector: 'person-overview-list',

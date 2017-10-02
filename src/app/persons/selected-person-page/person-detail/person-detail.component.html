@@ -27,7 +27,7 @@
     </ul>
   </div>
   <div class="card-footer">
-    <button class="btn btn-danger btn-sm" *ngIf="isInvited"><i class="fa fa-address-book" (click)="invite.emit(person)"></i> Remove from party</button>
-    <button class="btn btn-info btn-sm" *ngIf="!isInvited"><i class="fa fa-address-book" (click)="invite.emit(person)"></i> Invite to party</button>
+    <button class="btn btn-danger btn-sm" *ngIf="isInvited" (click)="uninvite.emit(person)"><i class="fa fa-address-book"></i> Remove from party</button>
+    <button class="btn btn-info btn-sm" *ngIf="!isInvited" (click)="invite.emit(person)"><i class="fa fa-address-book"></i> Invite to party</button>
   </div>
 </div>
