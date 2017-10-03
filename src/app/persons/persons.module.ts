@@ -10,22 +10,22 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 @NgModule({
-	declarations: [
-		FindPersonPageComponent,
-		PersonSearchComponent,
-		PersonOverviewListComponent,
-		PersonOverviewComponent,
-		SelectedPersonPageComponent,
-		PersonDetailComponent,
-	],
-	imports: [
-		CommonModule,
-		RouterModule.forChild(personsRoutes)
-	],
-	exports: [
-		RouterModule
-	],
-	providers: []
+  declarations: [
+    FindPersonPageComponent,
+    PersonSearchComponent,
+    PersonOverviewListComponent,
+    PersonOverviewComponent,
+    SelectedPersonPageComponent,
+    PersonDetailComponent,
+  ],
+  imports: [
+    CommonModule,
+    RouterModule.forChild(personsRoutes)
+  ],
+  exports: [
+    RouterModule
+  ],
+  providers: []
 })
 export class PersonsModule {
 }
