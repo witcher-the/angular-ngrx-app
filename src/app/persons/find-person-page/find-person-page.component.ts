@@ -1,9 +1,7 @@
 import {Component} from '@angular/core';
-import {Store} from '@ngrx/store';
-import {Observable} from 'rxjs/Observable';
 import {Person} from '../../model/person';
-import * as fromApp from '../../store/app.reducers';
-import * as PersonsActions from '../store/persons.actions';
+import {PersonService} from '../../services/person.service';
+import * as _ from 'lodash';
 
 @Component({
 	selector: 'find-person-page',
@@ -12,18 +10,19 @@ import * as PersonsActions from '../store/persons.actions';
 })
 export class FindPersonPageComponent {
 
-	searchQuery: Observable<string>;
-	persons: Observable<Person[]>;
+	searchQuery = '';
+	persons: Person[] = [];
 
-	constructor(
-		private store: Store<fromApp.AppState>) {
-
-		this.searchQuery = this.store.select(fromApp.selectSearchQuery);
-		this.persons = this.store.select(fromApp.selectSearchResults);
+	constructor(private personService: PersonService) {
 	}
 
 	search(query: string) {
-
-		this.store.dispatch(new PersonsActions.Search(query));
+		if (_.isEmpty(query)) {
+			this.persons = [];
+		} else {
+			this.personService
+				.searchPersons(query)
+				.subscribe(persons => this.persons = persons);
+		}
 	}
 }
