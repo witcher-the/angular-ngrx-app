@@ -13,6 +13,7 @@ import {InMemoryService} from './services/in-memory.service';
 import {PartyService} from './services/party.service';
 import {PersonService} from './services/person.service';
 import {reducers} from './store/app.reducers';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 
 @NgModule({
 	declarations: [
@@ -28,7 +29,10 @@ import {reducers} from './store/app.reducers';
 			{delay: 500, dataEncapsulation: false}
 		),
 		StoreModule.forRoot(reducers),
-		EffectsModule.forRoot([PersonsEffects])
+		EffectsModule.forRoot([PersonsEffects]),
+		StoreDevtoolsModule.instrument({
+			maxAge: 25
+		})
 	],
 	providers: [
 		PersonService,
