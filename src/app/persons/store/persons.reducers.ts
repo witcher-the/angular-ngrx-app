@@ -1,5 +1,8 @@
 import {Person} from '../../model/person';
-import * as PersonsActions from './persons.actions';
+import {
+	PersonsActions,
+	PersonsActionTypes
+} from './persons.actions';
 
 export interface State {
 	searchQuery: string;
@@ -13,16 +16,16 @@ const initialState: State = {
 
 export function personsReducer(
 	state = initialState,
-	action: PersonsActions.PersonsActions) {
+	action: PersonsActions) {
 
 	switch (action.type) {
 
-		case PersonsActions.SEARCH:
+		case PersonsActionTypes.SEARCH:
 			return {
 				...state,
 				searchQuery: action.payload
 			};
-		case PersonsActions.SEARCH_SUCCESS:
+		case PersonsActionTypes.SEARCH_SUCCESS:
 			return {
 				...state,
 				searchResults: action.payload
