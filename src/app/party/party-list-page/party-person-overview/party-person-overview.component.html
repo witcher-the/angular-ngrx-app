@@ -1,14 +1,14 @@
 <div class="row">
-  <div class="col">
-    <div data-toggle="buttons">
-      <label class="btn">
-        <input [(ngModel)]="person.attending" type="checkbox" (click)="attending.emit(person)">
-        <i class="fa fa-square-o fa-2x"></i>
-        <i class="fa fa-check-square-o fa-2x"></i>
-        <span> {{person.name}} {{person.lastName}}</span>
-      </label>
-    </div>
-  </div>
+	<div class="col">
+		<div data-toggle="buttons">
+			<label class="btn">
+				<input [(ngModel)]="person.attending" type="checkbox" (click)="attending.emit(person)">
+				<i class="fa fa-square-o fa-2x"></i>
+				<i class="fa fa-check-square-o fa-2x"></i>
+				<span> {{person.name}} {{person.lastName}}</span>
+			</label>
+		</div>
+	</div>
 </div>
 
 
