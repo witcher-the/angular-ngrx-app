@@ -1,6 +1,10 @@
 import {Person} from '../../model/person';
 import * as PersonsActions from './persons.actions';
 
+export interface PersonsFeatureState {
+	persons: State;
+}
+
 export interface State {
 	searchQuery: string;
 	searchResults: Person[];
@@ -30,4 +34,12 @@ export function personsReducer(
 		default:
 			return state;
 	}
+}
+
+export function selectSearchQuery(state: State): string {
+	return state.searchQuery;
+}
+
+export function selectSearchResults(state: State): Person[] {
+	return state.searchResults;
 }

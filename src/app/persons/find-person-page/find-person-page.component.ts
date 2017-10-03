@@ -2,8 +2,8 @@ import {Component} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs/Observable';
 import {Person} from '../../model/person';
-import * as fromApp from '../../store/app.reducers';
 import * as PersonsActions from '../store/persons.actions';
+import * as fromPersons from '../store/persons.reducers';
 
 @Component({
 	selector: 'find-person-page',
@@ -15,10 +15,10 @@ export class FindPersonPageComponent {
 	searchQuery: Observable<string>;
 	persons: Observable<Person[]>;
 
-	constructor(private store: Store<fromApp.AppState>) {
+	constructor(private store: Store<fromPersons.PersonsFeatureState>) {
 
-		this.searchQuery = this.store.select(fromApp.selectSearchQuery);
-		this.persons = this.store.select(fromApp.selectSearchResults);
+		this.searchQuery = this.store.select('persons' ).select(fromPersons.selectSearchQuery);
+		this.persons = this.store.select('persons' ).select(fromPersons.selectSearchResults);
 	}
 
 	search(query: string) {
