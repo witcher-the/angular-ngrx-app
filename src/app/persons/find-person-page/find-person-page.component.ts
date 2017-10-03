@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs/Observable';
 import {Person} from '../../model/person';
-import {PersonService} from '../../services/person.service';
 import * as fromApp from '../../store/app.reducers';
 import * as PersonsActions from '../store/persons.actions';
 

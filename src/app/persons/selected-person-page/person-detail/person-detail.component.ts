@@ -1,24 +1,24 @@
 import {
-  Component,
-  EventEmitter,
-  Input,
-  Output
+	Component,
+	EventEmitter,
+	Input,
+	Output
 } from '@angular/core';
 import {Person} from '../../../model/person';
 
 @Component({
-  selector: 'person-detail',
-  templateUrl: './person-detail.component.html',
-  styleUrls: ['./person-detail.component.less']
+	selector: 'person-detail',
+	templateUrl: './person-detail.component.html',
+	styleUrls: ['./person-detail.component.less']
 })
 export class PersonDetailComponent {
 
-  @Input() person: Person;
-  @Input() isInvited: boolean;
-  @Output() invite = new EventEmitter<Person>();
-  @Output() uninvite = new EventEmitter<Person>();
+	@Input() person: Person;
+	@Input() isInvited: boolean;
+	@Output() invite = new EventEmitter<Person>();
+	@Output() uninvite = new EventEmitter<Person>();
 
-  get age(): number {
-    return new Date().getFullYear() - new Date(this.person.dob).getFullYear();
-  }
+	get age(): number {
+		return new Date().getFullYear() - new Date(this.person.dob).getFullYear();
+	}
 }
