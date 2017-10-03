@@ -20,8 +20,6 @@ export class SearchSuccess implements Action {
 	}
 }
 
-export const PersonsActionTypes = {SEARCH: SEARCH, SEARCH_SUCCESS: SEARCH_SUCCESS};
-
 export type PersonsActions =
 	Search
 	| SearchSuccess;
