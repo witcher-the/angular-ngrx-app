@@ -1,28 +1,30 @@
 import {Component} from '@angular/core';
+import {Store} from '@ngrx/store';
+import {Observable} from 'rxjs/Observable';
 import {Person} from '../../model/person';
 import {PersonService} from '../../services/person.service';
-import * as _ from 'lodash';
+import * as fromApp from '../../store/app.reducers';
+import * as PersonsActions from '../store/persons.actions';
 
 @Component({
-  selector: 'find-person-page',
-  templateUrl: './find-person-page.component.html',
-  styleUrls: ['./find-person-page.component.less']
+	selector: 'find-person-page',
+	templateUrl: './find-person-page.component.html',
+	styleUrls: ['./find-person-page.component.less']
 })
 export class FindPersonPageComponent {
 
-  searchQuery = '';
-  persons: Person[] = [];
+	searchQuery: Observable<string>;
+	persons: Observable<Person[]>;
 
-  constructor(private personService: PersonService) {
-  }
+	constructor(
+		private store: Store<fromApp.AppState>) {
 
-  search(query: string) {
-    if (_.isEmpty(query)) {
-      this.persons = [];
-    } else {
-      this.personService
-        .searchPersons(query)
-        .subscribe(persons => this.persons = persons);
-    }
-  }
+		this.searchQuery = this.store.select(fromApp.selectSearchQuery);
+		this.persons = this.store.select(fromApp.selectSearchResults);
+	}
+
+	search(query: string) {
+
+		this.store.dispatch(new PersonsActions.Search(query));
+	}
 }

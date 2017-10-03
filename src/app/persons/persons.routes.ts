@@ -3,6 +3,6 @@ import {FindPersonPageComponent} from './find-person-page/find-person-page.compo
 import {SelectedPersonPageComponent} from './selected-person-page/selected-person-page.component';
 
 export const personsRoutes: Routes = [
-  {path: '', component: FindPersonPageComponent},
-  {path: ':id', component: SelectedPersonPageComponent}
+	{path: '', component: FindPersonPageComponent},
+	{path: ':id', component: SelectedPersonPageComponent}
 ];

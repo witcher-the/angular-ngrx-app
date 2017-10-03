@@ -7,19 +7,19 @@ import * as _ from 'lodash';
 
 @Injectable()
 export class PersonService {
-  private personsUrl = 'api/persons';
+	private personsUrl = 'api/persons';
 
-  constructor(private http: HttpClient) {
-  }
+	constructor(private http: HttpClient) {
+	}
 
-  searchPersons(search: string): Observable<Person[]> {
-    return this.http
-      .get<Person[]>(`${this.personsUrl}?name=^${search}`)
-      .map(persons => _.chunk(persons, 10)[0]);
-  }
+	searchPersons(search: string): Observable<Person[]> {
+		return this.http
+			.get<Person[]>(`${this.personsUrl}?name=^${search}`)
+			.map(persons => _.chunk(persons, 10)[0]);
+	}
 
-  getPerson(id: number): Observable<Person> {
-    return this.http
-      .get<Person>(`${this.personsUrl}/${id}`);
-  }
+	getPerson(id: number): Observable<Person> {
+		return this.http
+			.get<Person>(`${this.personsUrl}/${id}`);
+	}
 }

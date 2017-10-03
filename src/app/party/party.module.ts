@@ -7,19 +7,19 @@ import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    PartyListPageComponent,
-    PartyPersonOverviewComponent
-  ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    RouterModule.forChild(partyRoutes)
-  ],
-  exports: [
-    RouterModule
-  ],
-  providers: []
+	declarations: [
+		PartyListPageComponent,
+		PartyPersonOverviewComponent
+	],
+	imports: [
+		CommonModule,
+		FormsModule,
+		RouterModule.forChild(partyRoutes)
+	],
+	exports: [
+		RouterModule
+	],
+	providers: []
 })
 export class PartyModule {
 }
