@@ -1,6 +1,7 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
+import {EffectsModule} from '@ngrx/effects';
 import {StoreModule} from '@ngrx/store';
 import {FindPersonPageComponent} from './find-person-page/find-person-page.component';
 import {PersonOverviewListComponent} from './find-person-page/person-overview-list/person-overview-list.component';
@@ -9,6 +10,7 @@ import {PersonSearchComponent} from './find-person-page/person-search/person-sea
 import {personsRoutes} from './persons.routes';
 import {PersonDetailComponent} from './selected-person-page/person-detail/person-detail.component';
 import {SelectedPersonPageComponent} from './selected-person-page/selected-person-page.component';
+import {PersonsEffects} from './store/persons.effects';
 import * as fromPersons from './store/persons.reducers';
 
 @NgModule({
@@ -23,7 +25,8 @@ import * as fromPersons from './store/persons.reducers';
 	imports: [
 		CommonModule,
 		RouterModule.forChild(personsRoutes),
-		StoreModule.forFeature('persons', fromPersons.personsReducer)
+		StoreModule.forFeature('persons', fromPersons.personsReducer),
+		EffectsModule.forRoot([PersonsEffects])
 	],
 	exports: [
 		RouterModule

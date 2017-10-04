@@ -31,7 +31,6 @@ import {reducers} from './store/app.reducers';
 			{delay: 500, dataEncapsulation: false}
 		),
 		StoreModule.forRoot(reducers),
-		EffectsModule.forRoot([PersonsEffects]),
 		!environment.production ? StoreDevtoolsModule.instrument({
 			maxAge: 25
 		}) : [],
