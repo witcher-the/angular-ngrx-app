@@ -20,6 +20,12 @@ export class PersonsEffects {
 		.switchMap(searchQuery => this.personService.searchPersons(searchQuery))
 		.map(results => new PersonsActions.SearchSuccess(results));
 
+	@Effect()
+	select: Observable<Action> = this.actions.ofType(PersonsActions.SELECT)
+		.map((action: PersonsActions.Select) => action.payload)
+		.switchMap(personId => this.personService.getPerson(personId))
+		.map(person => new PersonsActions.SelectSuccess(person));
+
 	constructor(
 		private actions: Actions,
 		private personService: PersonService) {

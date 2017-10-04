@@ -17,8 +17,8 @@ export class FindPersonPageComponent {
 
 	constructor(private store: Store<fromPersons.PersonsFeatureState>) {
 
-		this.searchQuery = this.store.select('persons' ).select(fromPersons.selectSearchQuery);
-		this.persons = this.store.select('persons' ).select(fromPersons.selectSearchResults);
+		this.searchQuery = this.store.select(fromPersons.selectPersonsState).select(fromPersons.selectSearchQuery);
+		this.persons = this.store.select(fromPersons.selectPersonsState).select(fromPersons.selectSearchResults);
 	}
 
 	search(query: string) {
