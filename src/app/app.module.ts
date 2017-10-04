@@ -11,7 +11,6 @@ import {environment} from '../environments/environment';
 import {AppComponent} from './app.component';
 import {appRoutes} from './app.routes';
 import {LayoutComponent} from './layout/layout.component';
-import {PersonsEffects} from './persons/store/persons.effects';
 import {InMemoryService} from './services/in-memory.service';
 import {PartyService} from './services/party.service';
 import {PersonService} from './services/person.service';
@@ -31,6 +30,7 @@ import {reducers} from './store/app.reducers';
 			{delay: 500, dataEncapsulation: false}
 		),
 		StoreModule.forRoot(reducers),
+		EffectsModule.forRoot([]),
 		!environment.production ? StoreDevtoolsModule.instrument({
 			maxAge: 25
 		}) : [],

@@ -26,7 +26,7 @@ import * as fromPersons from './store/persons.reducers';
 		CommonModule,
 		RouterModule.forChild(personsRoutes),
 		StoreModule.forFeature('persons', fromPersons.personsReducer),
-		EffectsModule.forRoot([PersonsEffects])
+		EffectsModule.forFeature([PersonsEffects])
 	],
 	exports: [
 		RouterModule
