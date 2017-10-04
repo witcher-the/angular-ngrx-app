@@ -17,10 +17,7 @@ import {LayoutComponent} from './layout/layout.component';
 import {InMemoryService} from './services/in-memory.service';
 import {PartyService} from './services/party.service';
 import {PersonService} from './services/person.service';
-import {
-	CustomRouterStateSerializer,
-	reducers
-} from './store/app.reducers';
+import * as fromApp from './store/app.reducers';
 
 @NgModule({
 	declarations: [
@@ -35,7 +32,7 @@ import {
 			InMemoryService,
 			{delay: 500, dataEncapsulation: false}
 		),
-		StoreModule.forRoot(reducers),
+		StoreModule.forRoot(fromApp.reducers),
 		EffectsModule.forRoot([]),
 		!environment.production ? StoreDevtoolsModule.instrument({
 			maxAge: 25
@@ -45,7 +42,7 @@ import {
 	providers: [
 		PersonService,
 		PartyService,
-		{provide: RouterStateSerializer, useClass: CustomRouterStateSerializer}
+		{provide: RouterStateSerializer, useClass: fromApp.CustomRouterStateSerializer}
 	],
 	bootstrap: [AppComponent]
 })
