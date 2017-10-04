@@ -1,4 +1,5 @@
 import {createFeatureSelector} from '@ngrx/store';
+import * as _ from 'lodash';
 import {Person} from '../../model/person';
 import * as PersonsActions from './persons.actions';
 
@@ -31,6 +32,7 @@ export function personsReducer(
 				...state,
 				searchQuery: action.payload
 			};
+
 		case PersonsActions.SEARCH_SUCCESS:
 			return {
 				...state,
