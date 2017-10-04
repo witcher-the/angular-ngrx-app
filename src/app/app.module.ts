@@ -3,7 +3,10 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
 import {EffectsModule} from '@ngrx/effects';
-import {StoreRouterConnectingModule} from '@ngrx/router-store';
+import {
+	RouterStateSerializer,
+	StoreRouterConnectingModule
+} from '@ngrx/router-store';
 import {StoreModule} from '@ngrx/store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
@@ -14,7 +17,10 @@ import {LayoutComponent} from './layout/layout.component';
 import {InMemoryService} from './services/in-memory.service';
 import {PartyService} from './services/party.service';
 import {PersonService} from './services/person.service';
-import {reducers} from './store/app.reducers';
+import {
+	CustomRouterStateSerializer,
+	reducers
+} from './store/app.reducers';
 
 @NgModule({
 	declarations: [
@@ -38,7 +44,8 @@ import {reducers} from './store/app.reducers';
 	],
 	providers: [
 		PersonService,
-		PartyService
+		PartyService,
+		{provide: RouterStateSerializer, useClass: CustomRouterStateSerializer}
 	],
 	bootstrap: [AppComponent]
 })
