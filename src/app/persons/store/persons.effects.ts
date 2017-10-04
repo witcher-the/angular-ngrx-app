@@ -24,10 +24,7 @@ export class PersonsEffects {
 			}
 			return this.personService.searchPersons(searchQuery);
 		})
-		.map(results => {
-			console.log();
-			return new PersonsActions.SearchSuccess(results);
-		});
+		.map(results => new PersonsActions.SearchSuccess(results));
 
 	@Effect()
 	select: Observable<Action> = this.actions.ofType(PersonsActions.SELECT)
